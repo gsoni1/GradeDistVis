@@ -1,4 +1,7 @@
+# GradeDist
 <p align="center">
+	<img alt="GitHub latest commit" src="https://img.shields.io/github/last-commit/gsoni1/GradeDist">
+	<br>
 	<span>A free tool to help you plan your courses based on grade distribution and other metrics</span><br><br>
 	<small>Made by <a href="https://www.linkedin.com/in/gsoni16/">Gautam Soni</a></small>
 </p>
@@ -143,3 +146,6 @@ Professors who teach Principles of Biology:
 Data is from the Virginia Tech University DataCommons Database (Spring 2022 to Fall 2023, chosen to exclude grades that might be inflated due to online school)
 
 - https://udc.vt.edu/irdata/data/courses/grades
+
+## Analytics
+![Alt](https://repobeats.axiom.co/api/embed/1df85e0eedd5a0f5eb87cb1f703ccdce58b9c47f.svg "Repobeats analytics image")
