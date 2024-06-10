@@ -3,6 +3,7 @@
 	<img alt="GitHub latest commit" src="https://img.shields.io/github/last-commit/gsoni1/GradeDist">
 	<br>
 	<span>A free tool to help you plan your courses based on grade distribution and other metrics</span><br><br>
+	<span>For Virginia Tech</span><br><br>
 	<small>Made by <a href="https://www.linkedin.com/in/gsoni16/">Gautam Soni</a></small>
 </p>
 
