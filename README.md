@@ -1,5 +1,8 @@
 # GradeDistVis
+
 <p align="center">
+	<img alt="" src="https://github.com/gsoni1/GradeDist/blob/main/smoothhhh.jpg">
+	<br>
 	<img alt="GitHub latest commit" src="https://img.shields.io/github/last-commit/gsoni1/GradeDist">
 	<br>
 	<span>A free tool to help you plan your courses based on grade distribution and other metrics</span><br><br>
