@@ -1,7 +1,13 @@
+# jupyter notebook
 import pandas as pd
+pd.plotting.register_matplotlib_converters()
+import matplotlib.pyplot as plt
+# %matplotlib inline
+import seaborn as sns
+
+grades = pd.read_csv("gradedistriubtion.csv")
 
 # import data as csv file
-grades = pd.read_csv("gradedistriubtion.csv")
 grades = grades.rename(columns={'Course No.': 'Course_Number', 
                                 'Course Title': 'Course_Title',
                                 'Graded Enrollment': 'Enrollment', 
@@ -117,7 +123,7 @@ while True:
 
     
     # gpa calculation
-    print('')
+#     print('')
     GPA = 0.00
     i = 0
     while i < internal_grades.GPA.size:
@@ -127,7 +133,7 @@ while True:
     print("Average GPA: {:.3}".format(GPA))
 
     # grade distribution calculation
-    print('')
+#     print('')
     print("Grade distribution:")
     A = 0
     Aminus = 0
@@ -145,14 +151,24 @@ while True:
     j = 0
     letterchar = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']
     lettergrades = [A, Aminus, Bplus, B, Bminus, Cplus, C, Cminus, Dplus, D, Dminus, F]
+    val = []
     for letter in (lettergrades):
         i = 0
         while i < internal_grades.GPA.size:
             letter = letter + internal_grades.iloc[i][letterchar[j]]
             i += 1
         letter = letter / internal_grades.GPA.size
-        print("{}: {:.3}%".format(letterchar[j], letter))
+#         print("{}: {:.3}%".format(letterchar[j], letter))
+        val.append(letter)
         j += 1
+    data = {'labels': ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'],
+            'values': val}
+    df = pd.DataFrame(data)
+    sns.set_style("whitegrid")
+    plt.figure(figsize=(10,10))
+    plt.pie(df['values'], labels=df['labels'], autopct='%1.1f%%')
+    plt.title('Average Grade Distribution for ' + subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'])
+    plt.show()
 
     # sort professors
     print('')
@@ -192,14 +208,24 @@ while True:
             j = 0
             letterchar = ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F']
             lettergrades = [A, Aminus, Bplus, B, Bminus, Cplus, C, Cminus, Dplus, D, Dminus, F]
+            vals = []
             for letter in (lettergrades):
                 i = 0
                 while i < internal_grades.A.size:
                     letter = letter + internal_grades.iloc[k][letterchar[j]]
                     i += 1
                 letter = letter / internal_grades.A.size
-                print("{}: {:.3}%".format(letterchar[j], letter))
+#                 print("{}: {:.3}%".format(letterchar[j], letter))
+                vals.append(letter)
                 j += 1
+            data = {'labels': ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'],
+                        'values': vals}
+            df = pd.DataFrame(data)
+            sns.set_style("whitegrid")
+            plt.figure(figsize=(10,10))
+            plt.pie(df['values'], labels=df['labels'], autopct='%1.1f%%')
+            plt.title('Best Grade Distribution for ' + "Professor " + internal_grades.iloc[k]['Instructor'] + "'s class")
+            plt.show()
         k += 1
 
     # professors who teach the class
