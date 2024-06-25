@@ -1,3 +1,9 @@
+---
+title: GradeDistVis
+app_file: gradio_grade_dist_vis.py
+sdk: gradio
+sdk_version: 4.36.1
+---
 # GradeDistVis
 
 <p align="center">
