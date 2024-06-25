@@ -26,9 +26,9 @@ GradeDistVis is a tool that helps plan your courses based on metrics including
 - Professors who teach the course
 
 ## Versions
+- Web version (Best Experience) https://huggingface.co/spaces/gsoni/GradeDistVis
 - Terminal/CLI/IDE (.py)
 - Jupyter Notebook (.ipynb)
-- Web version https://www.kaggle.com/code/gsoni16/gradedistvis
 
 ## Installation
 Requirements:
