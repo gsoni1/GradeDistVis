@@ -130,20 +130,23 @@ def greet(subject, course_number, course_title):
 
         # professors who teach the class
         profswhoteach = ''
+        profswhoteach = profswhoteach + str('\n')
         profswhoteach = profswhoteach + str("Professors who teach {}:".format(internal_grades.iloc[0]['Course_Title']))
         profswhoteach = profswhoteach + str('\n')
         profswhoteach = profswhoteach + str(internal_grades.Instructor.unique())
 
         # enrollment and withdraws
         print('')
-        return (subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'] + ' (' + str(internal_grades.iloc[0]['Credits']) + ' Credits)'), ("Average GPA: {:.3}".format(GPA)), gradedistribution, sortedprofgradedist, profswhoteach
+        return (subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'] + ' (' + str(internal_grades.iloc[0]['Credits']) + ' Credits)') + ("\nAverage GPA: {:.3}".format(GPA)) + profswhoteach, gradedistribution, sortedprofgradedist 
 
 # gradio interface
 demo = gr.Interface(
     fn=greet,
     inputs=["text", "number", "text"],
-    outputs=["text", "text", "text", "text", "text"],
+    outputs=[gr.Textbox(label="Course Information"), gr.Textbox(label="Average Grade Distribution", lines=3), gr.Textbox(label="Grade Distributions by Professors", lines=3)],
     title="GradeDistVis",
-    description="By Gautam Soni",
+    description="By Gautam Soni, for Virginia Tech students: \n\n A free tool to help you plan your courses based on grade distribution and other metrics",
+    article="My github: https://github.com/gsoni1/ My Linkedin: https://www.linkedin.com/in/gsoni16/",
 )
+
 demo.launch()
