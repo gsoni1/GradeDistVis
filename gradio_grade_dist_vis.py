@@ -172,6 +172,8 @@ demo = gr.Interface(
     title="GradeDistVis",
     description="By Gautam Soni, for Virginia Tech students: \n\n A free tool to help you plan your courses based on grade distribution and other metrics",
     article="My github: https://github.com/gsoni1/ My Linkedin: https://www.linkedin.com/in/gsoni16/",
-)
+    examples = [["ECON", 2005, ''], ["CHEM", '',"General Chemistry"]],
+    cache_examples=True,
+).queue(default_concurrency_limit=10000)
 
 demo.launch()

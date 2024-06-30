@@ -80,7 +80,7 @@ def greet(subject, course_number, course_title):
             letter = letter / internal_grades.GPA.size
             val.append(letter)
             gradedistribution = gradedistribution + str("{}: {:.3}%".format(letterchar[j], letter))
-            gradedistribution = gradedistribution + str('\n')
+            gradedistribution = gradedistribution + str(', ')
             j += 1
         data = {'labels': ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'],
             'values': val}
@@ -114,6 +114,7 @@ def greet(subject, course_number, course_title):
                     sortedprofgradedist = sortedprofgradedist + str(" Below average")
                 sortedprofgradedist = sortedprofgradedist + str("\nEnrollment: {}".format(internal_grades.iloc[k]['Enrollment']) + ', Withdraws: {}'.format(internal_grades.iloc[k]['Withdraws']))
                 sortedprofgradedist = sortedprofgradedist + str("\nGrade distribution:")
+                sortedprofgradedist = sortedprofgradedist + str(" ")
                 A = 0
                 Aminus = 0
                 Bplus = 0
@@ -137,7 +138,8 @@ def greet(subject, course_number, course_title):
                         letter = letter + internal_grades.iloc[k][letterchar[j]]
                         i += 1
                     letter = letter / internal_grades.A.size
-                    sortedprofgradedist = sortedprofgradedist + str("\n{}: {:.3}%".format(letterchar[j], letter))
+                    sortedprofgradedist = sortedprofgradedist + str("{}: {:.3}%".format(letterchar[j], letter))
+                    sortedprofgradedist = sortedprofgradedist + str(', ')
                     # vals.append(letter)
                     j += 1
                 sortedprofgradedist = sortedprofgradedist + str('\n')
@@ -166,10 +168,19 @@ def greet(subject, course_number, course_title):
 demo = gr.Interface(
     fn=greet,
     inputs=["text", "number", "text"],
-    outputs=[gr.Textbox(label="Course Information"), gr.Textbox(label="Average Grade Distribution", lines=3), gr.Plot(label="Plot"), gr.Textbox(label="Grade Distributions by Professors", lines=3)],
+    outputs=[gr.Textbox(label="Course Information"), gr.Textbox(label="Average Grade Distribution", lines=2), gr.Plot(label="Average Distribution Plot"), gr.Textbox(label="Grade Distributions by Professors", lines=3)],
     title="GradeDistVis",
     description="By Gautam Soni, for Virginia Tech students: \n\n A free tool to help you plan your courses based on grade distribution and other metrics",
     article="My github: https://github.com/gsoni1/ My Linkedin: https://www.linkedin.com/in/gsoni16/",
+    examples = [["ECON", 2005, None], ["CHEM", None,"General Chemistry"]],
+    # examples = gr.Examples(
+    #     examples=[
+    #         ["ECON", 2005, ""],
+    #         ["CHEM", 1035, ""],
+    #         ["PHYS", "Foundations of Physics"]
+    #     ],
+    #     inputs=[subject, course_number, course_title],
+    # )
 )
 
 demo.launch()
