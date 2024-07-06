@@ -85,10 +85,11 @@ def greet(subject, course_number, course_title):
         data = {'labels': ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'],
             'values': val}
         df = pd.DataFrame(data)
+        plt.style.use('dark_background')
         sns.set_style("whitegrid")
         plt.figure(figsize=(10,10))
         plt.pie(df['values'], labels=df['labels'], autopct='%1.1f%%')
-        plt.title('Average Grade Distribution for ' + subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'])
+        plt.title('Average Grade Distribution for ' + subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'], color='white')
         #plt.show()
         plot = plt
 
@@ -167,7 +168,7 @@ def greet(subject, course_number, course_title):
 # gradio interface
 demo = gr.Interface(
     fn=greet,
-    inputs=["text", "number", "text"],
+    inputs=[gr.Textbox(label="Subject (Eg. ECON)"), gr.Number(label="Course Number (Eg. 2005)"), gr.Textbox(label="Course Title (Eg. Principles of Economics)")],
     outputs=[gr.Textbox(label="Course Information"), gr.Textbox(label="Average Grade Distribution", lines=2), gr.Plot(label="Average Distribution Plot"), gr.Textbox(label="Grade Distributions by Professors", lines=3)],
     title="GradeDistVis",
     description="By Gautam Soni, for Virginia Tech students: \n\n A free tool to help you plan your courses based on grade distribution and other metrics",
