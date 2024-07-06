@@ -85,11 +85,11 @@ def greet(subject, course_number, course_title):
         data = {'labels': ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'],
             'values': val}
         df = pd.DataFrame(data)
-        plt.style.use('dark_background')
+        # plt.style.use('dark_background')
         sns.set_style("whitegrid")
         plt.figure(figsize=(10,10))
         plt.pie(df['values'], labels=df['labels'], autopct='%1.1f%%')
-        plt.title('Average Grade Distribution for ' + subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'], color='white')
+        plt.title('Average Grade Distribution for ' + subject + ' ' + str(internal_grades.iloc[0]['Course_Number']) + ' - ' + internal_grades.iloc[0]['Course_Title'])
         #plt.show()
         plot = plt
 
