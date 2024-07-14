@@ -171,8 +171,8 @@ demo = gr.Interface(
     inputs=[gr.Textbox(label="Subject (Eg. ECON)"), gr.Number(label="Course Number (Eg. 2005)"), gr.Textbox(label="Course Title (Eg. Principles of Economics)")],
     outputs=[gr.Textbox(label="Course Information"), gr.Textbox(label="Average Grade Distribution", lines=2), gr.Plot(label="Average Distribution Plot"), gr.Textbox(label="Grade Distributions by Professors", lines=3)],
     title="GradeDistVis",
-    description="By Gautam Soni, for Virginia Tech students: \n\n A free tool to help you plan your courses based on grade distribution and other metrics",
-    article="My github: https://github.com/gsoni1/ My Linkedin: https://www.linkedin.com/in/gsoni16/",
+    description="For Virginia Tech students, by Gautam Soni: \n\n A free tool to help you plan your courses based on grade distribution and other metrics",
+    article="My Github: https://github.com/gsoni1/ My Linkedin: https://www.linkedin.com/in/gsoni16/",
     examples = [["ECON", 2005, ''], ["CHEM", '',"General Chemistry"]],
     cache_examples=True,
 ).queue(default_concurrency_limit=10000)
