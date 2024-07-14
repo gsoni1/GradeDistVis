@@ -1,13 +1,10 @@
 # GradeDistVis
 
 <p align="center">
-	<img alt="" src="https://github.com/gsoni1/GradeDist/blob/main/smoothhhh.jpg">
-	<br>
-	<img alt="GitHub latest commit" src="https://img.shields.io/github/last-commit/gsoni1/GradeDist">
+	<img alt="" src="https://github.com/gsoni1/GradeDist/blob/main/highresoutput.jpg">
 	<br>
 	<span>A free tool to help you plan your courses based on grade distribution and other metrics</span><br><br>
-	<span>For Virginia Tech</span><br><br>
-	<small>Made by <a href="https://www.linkedin.com/in/gsoni16/">Gautam Soni</a></small>
+	<span>For Virginia Tech students, by <a href="https://www.linkedin.com/in/gsoni16/">Gautam Soni</a></small> </span><br><br>
 </p>
 
 ## About
@@ -19,8 +16,10 @@ GradeDistVis is a tool that helps plan your courses based on metrics including
 - Enrollment and Withdraws
 - Professors who teach the course
 
+### Built with Python, Gradio, Pandas, Hugging Face, Seaborn, Matplotlib, Jupyter Notebook
+
 ## Versions
-- Web version (Best Experience) https://huggingface.co/spaces/gsoni/GradeDistVis
+- <a href=https://huggingface.co/spaces/gsoni/GradeDistVis>Web version (Best Experience) </a></small>  
 - Terminal/CLI/IDE (.py)
 - Jupyter Notebook (.ipynb)
 
@@ -30,11 +29,11 @@ Requirements:
 - Pandas
 - Matplotlib
 - Seaborn
-- Jupyter Notebook (optional)
+- Jupyter Notebook to run the ipynb file (optional)
 - IDE to run the python file (optional)
   
 Process:
-- Download the grade_dist_vis.py or grade_dist_vis.ipynb and gradeddistriubtion.csv files
+- Download the grade_dist_vis.py or grade_dist_vis.ipynb and gradedist.csv files
 - Install python, matplotlib, seaborn, and jupyter notebook (if using the .ipynb version)
 
 ## How to use
@@ -45,37 +44,35 @@ python grade_dist_vis.py
 ```
 or through an IDE (I recommend Visual Studio Code)
 
-- Enter subject name (required) eg. BIOL
-- Enter course number (optional) eg. 1105
-- Enter course title (optional) eg. Principles of Biology
+- Enter subject name (required) eg. ECON
+- Enter EITHER course number (optional) eg. 2005,
+- OR course title (optional) eg. Principles of Economics
 
 ## Example Output
-ARCH 1044 - Life in the Built Environment (3 Credits)
+ECON 2005 - Principles of Economics (3 Credits)
 
-Average GPA: 3.65
+Average GPA: 3.03
 
 Grade distribution:
 
-![alt text](https://github.com/gsoni1/GradeDist/blob/main/output.png)
+![alt text](https://github.com/gsoni1/GradeDist/blob/main/econ2005darkmode.png)
 
 Top Professors by GPA:
 
-Professor Tew, GPA: 3.67, Above average
+Professor Wooten, GPA: 3.19, Above average
 
-Enrollment: 1183, Withdraws: 10
+Enrollment: 53, Withdraws: 0
 
 Grade distribution:
 
-![alt text](https://github.com/gsoni1/GradeDist/blob/main/output2.png)
+![alt text](https://github.com/gsoni1/GradeDist/blob/main/wootendarkmode.png)
 
-Professors who teach Life in the Built Environment:
+Professors who teach Principles of Economics:
 
-['Tew']
+['Nurmukhametov' 'Perdue' 'Spoon' 'Mun' 'Wagnon' 'Sukhee' 'Wooten' 'Gu'
+ 'Owusu-Brown' 'Bandyopadhyay' 'Liu' 'Tantihkarnchana' 'Bradley']
 ## Data
 
-Data is from the Virginia Tech University DataCommons Database (Spring 2022 to Fall 2023, chosen to exclude grades that might be inflated due to online school)
+Data is from the Virginia Tech University DataCommons Database (Spring 2022 to Spring 2024, chosen to exclude grades that might be inflated due to online school between 2020 and 2021)
 
 - https://udc.vt.edu/irdata/data/courses/grades
-
-## Analytics
-![Alt](https://repobeats.axiom.co/api/embed/1df85e0eedd5a0f5eb87cb1f703ccdce58b9c47f.svg "Repobeats analytics image")
